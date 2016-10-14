@@ -104,7 +104,7 @@ function getDistrib()
         # pacman = package manager
 
         # DEBIAN / UBUNTU
-        if [ "$ID" == "ubuntu" ] || [ "$ID" == "debian" ]; then
+        if [ "$ID" == "ubuntu" ] || [ "$ID" == "debian" ] || [ "$ID" == "raspbian" ]; then
             PACMAN="apt-get -y install"
 
         # FEDORA
