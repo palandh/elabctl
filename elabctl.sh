@@ -80,9 +80,16 @@ function getDeps()
         install-pkg wget
     fi
 
-    if ! $(hash dig 2>/dev/null); then
-        echo "Installing prerequisite package: bind-utils. Please wait…"
-        install-pkg bind-utils
+    if [ "$ID" == "raspbian" ]; then
+        if ! $(hash dig 2>/dev/null); then
+            echo "Installing prerequisite package: dnsutils. Please wait…"
+            install-pkg dnsutils
+        fi 
+    else
+        if ! $(hash dig 2>/dev/null); then
+            echo "Installing prerequisite package: bind-utils. Please wait…"
+            install-pkg bind-utils
+        fi  
     fi
 
     if ! $(hash git 2>/dev/null); then
